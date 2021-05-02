@@ -95,6 +95,11 @@ class EventsController extends BaseController
         }
     ]
      */
+    public function getWarmupevents()
+    {
+        return response()->json(Event::join('workshops', 'events.id', '=', 'workshops.event_id')->get(),200);
+        # code...
+    }
 
     public function getEventsWithWorkshops() {
         throw new \Exception('implement in coding task 1');
